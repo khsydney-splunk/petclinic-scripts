@@ -40,3 +40,9 @@ else
   echo "No docker-compose.yml found in $ENV_DIR"
 fi
 
+sleep 20
+
+echo "Running docker compose up -d again..."
+docker compose up -d
+
+
