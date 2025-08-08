@@ -27,27 +27,27 @@ EOF
 echo "Wrote .env file with APPDYNAMICS_AGENT_APPLICATION_NAME=${APP_NAME}"
 
 # Delete all Docker images
-echo "Removing all existing Docker images..."
-docker image prune -a -f
+#echo "Removing all existing Docker images..."
+#docker image prune -a -f
 
 
 # Restart Docker Compose if compose file exists
 if [ -f "$COMPOSE_FILE" ]; then
   echo "Starting containers with Docker Compose..."
   cd "$ENV_DIR"
-  docker compose up -d
+  docker compose up -d --force-recreate
 else
   echo "No docker-compose.yml found in $ENV_DIR"
 fi
 
-sleep 20
+#sleep 20
 
-echo "stopping docker compose up -d again..."
-docker compose down
+#echo "stopping docker compose up -d again..."
+#docker compose down
 
-sleep 10
+#sleep 10
 
-echo "Running docker compose up -d again..."
-docker compose up -d
+#echo "Running docker compose up -d again..."
+#docker compose up -d
 
 
