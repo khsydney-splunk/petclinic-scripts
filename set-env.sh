@@ -42,6 +42,11 @@ fi
 
 sleep 20
 
+echo "stopping docker compose up -d again..."
+docker compose down
+
+sleep 10
+
 echo "Running docker compose up -d again..."
 docker compose up -d
 
