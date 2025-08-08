@@ -26,6 +26,11 @@ EOF
 
 echo "Wrote .env file with APPDYNAMICS_AGENT_APPLICATION_NAME=${APP_NAME}"
 
+# Delete all Docker images
+echo "Removing all existing Docker images..."
+docker image prune -a -f
+
+
 # Restart Docker Compose if compose file exists
 if [ -f "$COMPOSE_FILE" ]; then
   echo "Starting containers with Docker Compose..."
